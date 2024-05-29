@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -28,6 +29,12 @@ DEBUG = True
 
 # <HINT> add your cloud host here
 ALLOWED_HOSTS = []
+
+if django.VERSION >= (3, 2):
+    DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+else:
+    DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
+
 
 CSRF_TRUSTED_ORIGINS = ['https://*.cognitiveclass.ai']
 
